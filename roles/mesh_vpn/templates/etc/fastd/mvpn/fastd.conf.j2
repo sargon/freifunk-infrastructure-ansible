@@ -1,5 +1,5 @@
 log to syslog as "fastd-{{ site.code }}" level debug;
-interface "mvpn-{{ site.code }}";
+interface "mvpn_{{ site.code }}";
 method "salsa2012+umac";    # since fastd v15
 method "salsa2012+gmac";
 method "xsalsa20-poly1305"; # deprecated
