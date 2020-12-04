@@ -37,4 +37,3 @@
   service:
     name: iptables
     enabled: yes
-    state: started
