@@ -1,0 +1,24 @@
+# Default settings
+[Defaults]
+MulticastLinkAddress: ff02::2:1001
+MulticastSiteAddress: ff05::2:1001
+DefaultDomain: {{ site.code }}
+DomainType: batadv
+{% if interface.mesh_bridge.dhcp_gateway is defined %}
+IPv4Gateway: {{ interface.mesh_bridge.dhcp_gateway }}
+{% else %}
+IPv4Gateway: {{ interface.mesh_bridge.address.ipv4 }}
+{% endif %}
+
+[{{ site.code }}]
+DomainType: batadv
+MulticastLinkAddress: ff02::2:1001
+MulticastSiteAddress: ff05::2:1001
+BatmanInterface: bat-{{ site.code }}
+Interfaces: mvpn_{{ site.code }}
+{% if interface.mesh_bridge.dhcp_gateway is defined %}
+IPv4Gateway: {{ interface.mesh_bridge.dhcp_gateway }}
+{% else %}
+IPv4Gateway: {{ interface.mesh_bridge.address.ipv4 }}
+{% endif %}
+

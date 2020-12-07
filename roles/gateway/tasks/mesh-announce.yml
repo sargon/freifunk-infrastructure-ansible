@@ -23,6 +23,13 @@
   notify:
     - restart respondd
 
+- name: Ensure respondd configuration is deployed
+  template:
+    src: etc/respondd.conf.j2
+    dest: /etc/respondd.conf
+  notify:
+    - restart respondd
+
 # Service setup
 - name: Ensure mesh-announce service file is installed
   template:
