@@ -1,0 +1,27 @@
+---
+
+- name: Ensure kernel policy is available
+  template:
+    src: etc/apt/preferences.d/kernel.j2
+    dest: /etc/apt/preferences.d/kernel
+    mode: 0644
+    owner: root
+    group: root
+  tags: batman_adv_kernel
+
+- name: Ensure batctl policy is available
+  template:
+    src: etc/apt/preferences.d/batctl.j2
+    dest: /etc/apt/preferences.d/batctl
+    mode: 0644
+    owner: root
+    group: root
+  tags: batman_adv_kernel
+
+- name: Ensure required kernel and batctl versions are installed
+  apt:
+    name: 
+      - linux-image-amd64
+      - batctl
+    state: latest
+  tags: batman_adv_kernel

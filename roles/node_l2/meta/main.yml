@@ -1,4 +1,4 @@
 ---
 dependencies:
   - { role: node }
-  - { role: batman_adv_dkms }
+  - { role: batman_adv_kernel }
